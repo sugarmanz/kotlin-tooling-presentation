@@ -298,8 +298,9 @@ function App() {
 
       <Slide backgroundColor="white">
         <Step label="Sonatype Configuration" image="sonatype.png" links={[
+          <Link href="https://github.com/gradle-nexus/publish-plugin">Gradle Nexus Publish Plugin Github</Link>,
           <Link href="https://github.com/intuit/hooks/blob/main/build.gradle.kts#L48">Sonatype Plugin Configuration</Link>,
-          <Link href="https://issues.sonatype.org/browse/OSSRH-65077">Sonatype JIRA Ticket</Link>
+          <Link href="https://issues.sonatype.org/browse/OSSRH-65077">Sonatype JIRA Ticket</Link>,
         ]} />
       </Slide>
 
