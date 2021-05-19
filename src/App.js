@@ -33,7 +33,7 @@ const Emphasize = ({ children, className }) => (
   </span>
 );
 
-const Step = ({ number, label, image }) => (
+const Step = ({ number, label, image, links }) => (
   <div className="flex items-center justify-center flex-col mb-8 w-full h-full">
     <div className="pr-4 mb-6 text-5xl text-gray-900 mx-20 text-center">
       {label}
@@ -42,8 +42,12 @@ const Step = ({ number, label, image }) => (
     <img
       alt=""
       className="max-w-4xl border-2 border-gray-300 rounded-lg h-auto"
-      src={image}
+      src={`https://sugarmanz.github.io/kotlin-tooling-presentation/public/${image}`}
     />
+
+    {links && <div>
+      {links.map(link => (<div>${link}</div>))}
+    </div>}
   </div>
 );
 
@@ -210,7 +214,10 @@ function App() {
 
       <Slide backgroundColor="white">
         {/* https://kotlinlang.org/docs/kotlin-doc.html */}
-        <Step number={1} label="Dokka" image="dokka.png" />
+        <Step number={1} label="Dokka" image="dokka.png" links={[
+          <Link href="https://kotlinlang.org/docs/kotlin-doc.html">KDoc Reference</Link>,
+          <Link href="https://intuit.github.io/hooks/kotlindoc/hooks/com/intuit/hooks/">Hooks API Docs</Link>,
+        ]} />
         {/* links? */}
       </Slide>
 
