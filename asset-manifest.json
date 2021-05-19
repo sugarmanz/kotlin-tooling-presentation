@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kotlin-tooling-presentation/static/css/main.3451aed5.chunk.css",
+    "main.js": "/kotlin-tooling-presentation/static/js/main.196efb5d.chunk.js",
+    "main.js.map": "/kotlin-tooling-presentation/static/js/main.196efb5d.chunk.js.map",
+    "runtime-main.js": "/kotlin-tooling-presentation/static/js/runtime-main.8e1a3780.js",
+    "runtime-main.js.map": "/kotlin-tooling-presentation/static/js/runtime-main.8e1a3780.js.map",
+    "static/js/2.0c327fb0.chunk.js": "/kotlin-tooling-presentation/static/js/2.0c327fb0.chunk.js",
+    "static/js/2.0c327fb0.chunk.js.map": "/kotlin-tooling-presentation/static/js/2.0c327fb0.chunk.js.map",
+    "index.html": "/kotlin-tooling-presentation/index.html",
+    "precache-manifest.435ed77b421fd340057c39193167babf.js": "/kotlin-tooling-presentation/precache-manifest.435ed77b421fd340057c39193167babf.js",
+    "service-worker.js": "/kotlin-tooling-presentation/service-worker.js",
+    "static/css/main.3451aed5.chunk.css.map": "/kotlin-tooling-presentation/static/css/main.3451aed5.chunk.css.map",
+    "static/js/2.0c327fb0.chunk.js.LICENSE.txt": "/kotlin-tooling-presentation/static/js/2.0c327fb0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8e1a3780.js",
+    "static/js/2.0c327fb0.chunk.js",
+    "static/css/main.3451aed5.chunk.css",
+    "static/js/main.196efb5d.chunk.js"
+  ]
+}
