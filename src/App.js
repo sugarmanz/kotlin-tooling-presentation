@@ -104,7 +104,7 @@ const Setup = () => (
 const Requirements = () => (
   <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
-      What are we looking for?
+      What are we aiming for?
     </h2>
     <div className="h-full flex justify-around items-center flex-row text-gray-900">
       <div className="flex-1 lg:px-12">
@@ -112,7 +112,7 @@ const Requirements = () => (
           title="Quality Documentation"
           icon={faBook}
           description="For libraries that are consumed and expose an API, usage docs and API
-            docs are important to ensure your code can be used easily!"
+            docs are important to ensure your code can be used without frustration!"
         // Dokka for API docs
         // Orchid for usage docs
         // Testing documentation knit
@@ -121,7 +121,7 @@ const Requirements = () => (
         <Feature
           title="Stable Releases"
           icon={faShip}
-          description="Protect your consumers from errant releases and ensure release follow
+          description="Protect your consumers from errant releases and ensure releases follow
             strict versioning patterns."
         // Auto
         // binary compatibility
@@ -282,6 +282,30 @@ function App() {
         <Step label="License Check: Fossa" image="fossa.png" links={[
           <Link href="https://fossa.com/">Fossa</Link>,
           <Link href="https://app.fossa.com/projects/custom%2B23410%2Fgit%40github.com%3Aintuit%2Fhooks/refs/branch/master/a1a5365b7e6c686b7026d48ff63c30a4f80b30ca/preview">Hooks Fossa Report</Link>
+        ]} />
+      </Slide>
+
+      <Slide>
+        <Topic name="Bonus" subtopics={["Simple Pipeline", "Minimal Configuration", "Intuit OSS Guidelines"]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="Simple Pipeline" image="pipeline.png" links={[
+          <Link href="https://github.com/intuit/hooks/blob/main/.circleci/config.yml">Hooks Circle CI Pipeline</Link>,
+          <Link href="https://github.com/intuit/hooks/blob/main/build.gradle.kts#L62">Hooks Gradle Publish Task</Link>,
+        ]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="Sonatype Configuration" image="sonatype.png" links={[
+          <Link href="https://github.com/intuit/hooks/blob/main/build.gradle.kts#L48">Sonatype Plugin Configuration</Link>,
+          <Link href="https://issues.sonatype.org/browse/OSSRH-65077">Sonatype JIRA Ticket</Link>
+        ]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="Intuit OSS Process" image="oss.png" links={[
+          <Link href="https://github.intuit.com/pages/open-source/OSSContributionProcess/">Intuit OSS Contribution Process</Link>,
         ]} />
       </Slide>
 
