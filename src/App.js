@@ -42,11 +42,13 @@ const Step = ({ number, label, image, links }) => (
     <img
       alt=""
       className="max-w-4xl border-2 border-gray-300 rounded-lg h-auto"
-      src={`https://sugarmanz.github.io/kotlin-tooling-presentation/public/${image}`}
+      src={`https://sugarmanz.github.io/kotlin-tooling-presentation/${image}`}
     />
 
-    {links && <div>
-      {links.map(link => (<div>${link}</div>))}
+    <br />
+
+    {links && <div className="flex flex-col max-w-4xl justify-left items-left text-2xl">
+      {links.map(link => (<div><Emphasize>- {link}</Emphasize></div>))}
     </div>}
   </div>
 );
@@ -213,25 +215,25 @@ function App() {
       </Slide>
 
       <Slide backgroundColor="white">
-        {/* https://kotlinlang.org/docs/kotlin-doc.html */}
-        <Step number={1} label="Dokka" image="dokka.png" links={[
+        <Step number={1} label="API Docs: Dokka" image="dokka.png" links={[
           <Link href="https://kotlinlang.org/docs/kotlin-doc.html">KDoc Reference</Link>,
           <Link href="https://intuit.github.io/hooks/kotlindoc/hooks/com/intuit/hooks/">Hooks API Docs</Link>,
         ]} />
-        {/* links? */}
       </Slide>
 
       <Slide backgroundColor="white">
-        {/* https://orchid.run/ */}
-        <Step number={2} label="Orchid" image="orchid.png" />
-        {/* links? */}
+        <Step number={2} label="Usage Docs: Orchid" image="orchid.png" links={[
+          <Link href="https://orchid.run/">Orchid Reference</Link>,
+          <Link href="https://intuit.github.io/hooks/">Hooks Docs Site</Link>,
+        ]} />
       </Slide>
 
 
       <Slide backgroundColor="white">
-        {/* https://github.com/Kotlin/kotlinx-knit */}
-        <Step number={2} label="Kotlinx Knit" image="knit.png" />
-        {/* links? */}
+        <Step number={2} label="Docs Verification: Kotlinx Knit" image="knit.png" links={[
+          <Link href="https://github.com/Kotlin/kotlinx-knit">Kotlinx Knit Github</Link>,
+          <Link href="https://github.com/intuit/hooks/tree/master/docs/src/test/kotlin/example/example-synchook-01.kt">example-synchook-01.kt</Link>,
+        ]} />
       </Slide>
 
       {/* <Slide backgroundColor="white"> */}
