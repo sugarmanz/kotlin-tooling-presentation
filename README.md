@@ -1,11 +1,6 @@
-# Auto Lightning Talk
+# Kotlin Tooling Presentation
 
-[View Presentation](https://hipstersmoothie.github.io/auto-lightning-talk/)
-
-This is a talk that gives a quick intro to what using `auto` is like.
-It should take 5 - 10 minutes.
-
-Feel free to use this presentation at your company!
+[View Presentation](https://sugarmanz.github.io/kotlin-tooling-presentation/)
 
 ---
 
