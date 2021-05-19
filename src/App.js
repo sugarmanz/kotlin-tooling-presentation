@@ -24,7 +24,7 @@ const Feature = ({ title, description, icon }) => (
 );
 
 const Link = props => (
-  <a {...props}><span className="text-blue-600 font-semibold underline" {...props} /></a>
+  <a {...props}><span className={`text-${props.color ?? "blue"}-600 font-semibold underline`} {...props} /></a>
 );
 
 const Emphasize = ({ children, className }) => (
@@ -62,21 +62,21 @@ const FrequentlyAskedQuestion = ({ question, answer }) => (
   </div>
 );
 
-const First = () => (
+const Title = () => (
   <div
     className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center text-center absolute"
     style={{ margin: -32 }}
   >
-    <h1 className="text-6xl font-bold text-white">Kotlin</h1>
+    <h1 className="text-6xl font-bold text-white">Publishing a Kotlin Library</h1>
 
     <p className="text-2xl text-purple-200 font-light">
       We know the language is awesome, but what about{" "}
-      <span className="text-yellow-500 font-semibold">tooling?</span>
+      <span className="text-yellow-500 font-semibold">publication tooling?</span>
     </p>
   </div>
 );
 
-const Second = () => (
+const Setup = () => (
   <div className="mt-10 lg:mb-24 text-center flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
       Using a cool language shouldn't come at the expense of quality tools
@@ -92,47 +92,82 @@ const Second = () => (
   </div>
 );
 
-const Third = () => (
-  <div className="h-full flex justify-around items-center flex-row text-gray-900">
-    <div className="flex-1 lg:px-12">
-      <Feature
-        title="Documentation"
-        icon={faBook}
-        description="For libraries that are consumed and expose an API, usage docs and API
+const Requirements = () => (
+  <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
+    <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
+      What are we looking for?
+    </h2>
+    <div className="h-full flex justify-around items-center flex-row text-gray-900">
+      <div className="flex-1 lg:px-12">
+        <Feature
+          title="Quality Documentation"
+          icon={faBook}
+          description="For libraries that are consumed and expose an API, usage docs and API
             docs are important to ensure your code can be used easily!"
-            // Dokka for API docs
-            // Orchid for usage docs
-            // Testing documentation knit
-      />
+        // Dokka for API docs
+        // Orchid for usage docs
+        // Testing documentation knit
+        />
 
-      <Feature
-        title="Quality & Stable Releases"
-        icon={faShip}
-        description="Protect your consumers from errant releases and ensure release follow
-            strict versioning patterns." 
-            // Auto
-            // binary compatibility
-      />
+        <Feature
+          title="Stable Releases"
+          icon={faShip}
+          description="Protect your consumers from errant releases and ensure release follow
+            strict versioning patterns."
+        // Auto
+        // binary compatibility
+        />
 
-      <Feature
-        title="Maintainability & OpenSource Readiness"
-        icon={faCheck}
-        description="Set the project up for success by defining & enforcing standards to
+        <Feature
+          title="Maintainability & OpenSource Readiness"
+          icon={faCheck}
+          description="Set the project up for success by defining & enforcing standards to
             follow when making a contribution. This includes formatting, testing, documentation..."
-            // ktlint
-            // detekt
-            // license check on PR
-      />
-    </div>
+        // ktlint
+        // detekt
+        // license check on PR
+        />
+      </div>
 
-    <div className="flex-1 px-12 mb-20 lg:mb-0">
-      <img
-        src="documentation.png"
-        alt="documentation example"
-        className="border border-grey-600 rounded-lg p-4 shadow-md"
-        style={{ maxHeight: 500 }}
-      />
+      <div className="flex-1 px-12 mb-20 lg:mb-0">
+        <img
+          src="documentation.png"
+          alt="documentation example"
+          className="border border-grey-600 rounded-lg p-4 shadow-md"
+          style={{ maxHeight: 500 }}
+        />
+      </div>
     </div>
+  </div>
+);
+
+const Documentation = () => (
+  <div
+    className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center absolute"
+    style={{ margin: -32 }}
+  >
+    <h1 className="text-6xl font-bold text-white">Documentation</h1>
+
+    <p className="text-2xl text-yellow-500 font-semibold">
+      <ul>
+        <li>API Docs</li>
+        <li>Usage Docs</li>
+        <li>Doc Verification</li>
+      </ul>
+    </p>
+  </div>
+);
+
+const Questions = () => (
+  <div
+    className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center text-center absolute"
+    style={{ margin: -32 }}
+  >
+    <h1 className="text-6xl font-bold text-white">Questions?</h1>
+
+    <p className="text-2xl text-purple-200 font-light">
+      Slides are posted to <Link href="https://sugarmanz.github.io/kotlin-tooling-presentation" color="yellow">https://sugarmanz.github.io/kotlin-tooling-presentation</Link>
+    </p>
   </div>
 );
 
@@ -152,207 +187,60 @@ function App() {
   // 3a. ktlint
   // 3b. detekt
   // 3c. fossa
+  // maybe brief sonatype preview?
   // 4. intuit OSS process?
   // 5. questions? 
   return (
     <Deck>
       <Slide>
-        <First />
+        <Title />
       </Slide>
 
       <Slide backgroundColor="white">
-        <Second />
+        <Setup />
       </Slide>
 
       <Slide backgroundColor="white">
-        <Third />
+        <Requirements />
       </Slide>
 
       <Slide backgroundColor="white">
-        <div className="h-full flex flex-col justify-center">
-          <h2 className="text-center text-5xl text-gray-900 mx-20 font-semibold">
-            What does the workflow look like?
-          </h2>
-
-          <Emphasize className="text-center text-6xl text-gray-900 mx-20">
-            How easy is it really?
-          </Emphasize>
-        </div>
+        <Documentation />
       </Slide>
 
       <Slide backgroundColor="white">
-        <Step number={1} label="Open a Pull Request" image="open-pr.png" />
+        {/* https://kotlinlang.org/docs/kotlin-doc.html */}
+        <Step number={1} label="Dokka" image="dokka.png" />
+        {/* links? */}
       </Slide>
 
       <Slide backgroundColor="white">
-        <Step
-          number={2}
-          image="add-label.png"
-          label={
-            <>
-              Add a{" "}
-              <Label color="blue" size="xl">
-                label
-              </Label>
-            </>
-          }
-        />
+        {/* https://orchid.run/ */}
+        <Step number={2} label="Orchid" image="orchid.png" />
+        {/* links? */}
       </Slide>
 
+
       <Slide backgroundColor="white">
-        <Step number={3} label="Hit that merge button" image="merge.png" />
+        {/* https://github.com/Kotlin/kotlinx-knit */}
+        <Step number={2} label="Kotlinx Knit" image="knit.png" />
+        {/* links? */}
       </Slide>
 
-      <Slide backgroundColor="white">
-        <Step
-          number={4}
-          image="release.png"
-          label="Wait for you continuous integration to make the release for you!"
-        />
-      </Slide>
+      {/* <Slide backgroundColor="white"> */}
+      {/* <Releases /> */}
+      {/* </Slide> */}
 
-      <Slide backgroundColor="white">
-        <FrequentlyAskedQuestion
-          question={
-            <>
-              Do you really release{" "}
-              <span className="font-extrabold italic">every</span> pull
-              request?!
-            </>
-          }
-          answer={
-            <>
-              <Link href="https://github.com/intuit/auto/releases">Yup!</Link>{" "}
-              But if you don't want to do that it's up to you. The tools{" "}
-              <Emphasize>auto</Emphasize> ships with can be used to{" "}
-              <span className="font-semibold text-red-600">
-                fit any workflow
-              </span>
-              ! You can also use <Label color="purple">skip-release</Label>{" "}
-              labels or configure <Emphasize>auto</Emphasize> to only release
-              with a <Label color="blue">release</Label> label.
-            </>
-          }
-        />
-      </Slide>
+      {/* <Slide backgroundColor="white"> */}
+      {/* <Maintainability /> */}
+      {/* </Slide> */}
 
-      <Slide backgroundColor="white">
-        <FrequentlyAskedQuestion
-          question={
-            <>
-              Is there a way to hook into <Emphasize>auto</Emphasize> and
-              customize my release process?
-            </>
-          }
-          answer={
-            <>
-              Many of <Emphasize>auto</Emphasize>'s features are{" "}
-              <Link href="https://intuit.github.io/auto/pages/plugins.html">
-                built into plugins
-              </Link>
-              . You can also use this plugin system to do{" "}
-              <span className="font-semibold text-red-600">
-                almost anything
-              </span>{" "}
-              during your release!
-            </>
-          }
-        />
-      </Slide>
+      {/* <Sonatype /> */}
 
-      <Slide backgroundColor="white">
-        <div className="h-full flex justify-center items-center">
-          <img
-            className="max-h-full w-auto"
-            style={{ height: 600 }}
-            src="logos.png"
-            alt="Supported package platforms"
-          />
-        </div>
-      </Slide>
+      {/* <IntuitOpenSource /> */}
 
-      <Slide backgroundColor="white">
-        <FrequentlyAskedQuestion
-          question={
-            <>
-              Does <Emphasize>auto</Emphasize> support any other types of
-              releases?
-            </>
-          }
-          answer={
-            <>
-              <p className="mb-3">
-                Yes! <Emphasize>auto</Emphasize> has commands for any situation!
-              </p>
-
-              <p className="mb-2">
-                Want a test version? Try a{" "}
-                <Link href="https://intuit.github.io/auto/pages/generated/canary.html">
-                  canary
-                </Link>
-              </p>
-
-              <p className="mb-2">
-                Want a prerelease? Try creating a pre-release branch and using{" "}
-                <Link href="https://intuit.github.io/auto/pages/generated/next.html">
-                  next
-                </Link>
-              </p>
-
-              <p className="mb-2">
-                Need to patch an old major release? <Emphasize>auto</Emphasize>{" "}
-                can automatically make branches for{" "}
-                <Link href="https://intuit.github.io/auto/pages/generated/shipit.html#managing-old-major-versions">
-                  old major versions
-                </Link>
-                !
-              </p>
-
-              <p>
-                Or if you don't want to worry about what command to you need,
-                just use{" "}
-                <Link href="https://intuit.github.io/auto/pages/generated/shipit.html">
-                  shipit
-                </Link>
-                ! This command determines what type of release to make based on
-                the context it's run in.
-              </p>
-            </>
-          }
-        />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <div className="h-full flex flex-col justify-center">
-          <h3 className="text-center text-6xl text-gray-900 mx-20 mb-10">
-            Stop worrying about your release and{" "}
-            <Emphasize className="block">hit that merge button!</Emphasize>
-          </h3>
-          <div className="text-gray-800 text-3xl text-center">
-            Visit <Link>https://github.com/intuit/auto</Link> to get started 🎉
-          </div>
-        </div>
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <div className="h-full flex flex-col justify-center">
-          <Emphasize className="text-center text-6xl text-gray-900 mx-20">
-            One more thing...
-          </Emphasize>
-        </div>
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <div className="h-full flex justify-center items-center flex-col">
-          <Emphasize className="text-center text-6xl text-gray-900 mx-20 mb-8">
-            Hand-craft release notes for any PR
-          </Emphasize>
-          <img
-            className="max-h-full w-auto"
-            src="release-notes.png"
-            alt="Supported package platforms"
-          />
-        </div>
+      <Slide>
+        <Questions />
       </Slide>
     </Deck>
   );
