@@ -11,6 +11,8 @@ import {
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
+const PUBLIC_URL = "https://sugarmanz.github.io/kotlin-tooling-presentation/"
+
 const Feature = ({ title, description, icon }) => (
   <div className="mb-8 flex items-start last:mb-0">
     <div className="rounded bg-yellow-500 p-3 text-yellow-100 mr-5">
@@ -42,7 +44,7 @@ const Step = ({ number, label, image, links }) => (
     <img
       alt=""
       className="max-w-4xl border-2 border-gray-300 rounded-lg h-auto"
-      src={`https://sugarmanz.github.io/kotlin-tooling-presentation/${image}`}
+      src={`${PUBLIC_URL}/${image}`}
     />
 
     <br />
@@ -79,6 +81,7 @@ const Title = () => (
       We know the language is awesome, but what about{" "}
       <span className="text-yellow-500 font-semibold">publication tooling?</span>
     </p>
+    {/* TODO: Maybe reframe to how to publish quality software? */}
   </div>
 );
 
@@ -125,7 +128,7 @@ const Requirements = () => (
         />
 
         <Feature
-          title="Maintainability & OpenSource Readiness"
+          title="Maintainability & Open Source Readiness"
           icon={faCheck}
           description="Set the project up for success by defining & enforcing standards to
             follow when making a contribution. This includes formatting, testing, documentation..."
@@ -135,9 +138,11 @@ const Requirements = () => (
         />
       </div>
 
+      {/* TODO: Maybe simple pipeline? */}
+
       <div className="flex-1 px-12 mb-20 lg:mb-0">
         <img
-          src="documentation.png"
+          src={`${PUBLIC_URL}/documentation.png`}
           alt="documentation example"
           className="border border-grey-600 rounded-lg p-4 shadow-md"
           style={{ maxHeight: 500 }}
@@ -147,18 +152,16 @@ const Requirements = () => (
   </div>
 );
 
-const Documentation = () => (
+const Topic = ({ name, subtopics = [] }) => (
   <div
     className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center absolute"
     style={{ margin: -32 }}
   >
-    <h1 className="text-6xl font-bold text-white">Documentation</h1>
+    <h1 className="text-6xl font-bold text-white">{name}</h1>
 
     <p className="text-2xl text-yellow-500 font-semibold">
       <ul>
-        <li>API Docs</li>
-        <li>Usage Docs</li>
-        <li>Doc Verification</li>
+        {subtopics.map(subtopic => <li>- {subtopic}</li>)}
       </ul>
     </p>
   </div>
@@ -210,43 +213,77 @@ function App() {
         <Requirements />
       </Slide>
 
-      <Slide backgroundColor="white">
-        <Documentation />
+      <Slide>
+        <Topic name="Documentation" subtopics={["API Docs", "Usage Docs", "Doc Verification"]} />
       </Slide>
 
       <Slide backgroundColor="white">
-        <Step number={1} label="API Docs: Dokka" image="dokka.png" links={[
+        <Step label="API Docs: Dokka" image="dokka.png" links={[
           <Link href="https://kotlinlang.org/docs/kotlin-doc.html">KDoc Reference</Link>,
           <Link href="https://intuit.github.io/hooks/kotlindoc/hooks/com/intuit/hooks/">Hooks API Docs</Link>,
         ]} />
       </Slide>
 
       <Slide backgroundColor="white">
-        <Step number={2} label="Usage Docs: Orchid" image="orchid.png" links={[
+        <Step label="Usage Docs: Orchid" image="orchid.png" links={[
           <Link href="https://orchid.run/">Orchid Reference</Link>,
           <Link href="https://intuit.github.io/hooks/">Hooks Docs Site</Link>,
         ]} />
       </Slide>
 
-
       <Slide backgroundColor="white">
-        <Step number={2} label="Docs Verification: Kotlinx Knit" image="knit.png" links={[
+        <Step label="Docs Verification: Kotlinx Knit" image="knit.png" links={[
           <Link href="https://github.com/Kotlin/kotlinx-knit">Kotlinx Knit Github</Link>,
           <Link href="https://github.com/intuit/hooks/tree/master/docs/src/test/kotlin/example/example-synchook-01.kt">example-synchook-01.kt</Link>,
         ]} />
       </Slide>
 
-      {/* <Slide backgroundColor="white"> */}
-      {/* <Releases /> */}
-      {/* </Slide> */}
+      <Slide>
+        <Topic name="Releases" subtopics={["Semantic Versioning w/ Auto", "Binary Compatibility", "Deprecation"]} />
+      </Slide>
 
-      {/* <Slide backgroundColor="white"> */}
-      {/* <Maintainability /> */}
-      {/* </Slide> */}
+      <Slide backgroundColor="white">
+        <Step label="Semantic Versioning w/ Auto" image="auto.png" links={[
+          <Link href="https://github.com/intuit/auto">Auto Github</Link>,
+          <Link href="https://intuit.github.io/hooks/changelog/">Hooks Changelog</Link>,
+        ]} />
+      </Slide>
 
-      {/* <Sonatype /> */}
+      <Slide backgroundColor="white">
+        <Step label="Binary Compatibility" image="api.png" links={[
+          <Link href="https://github.com/Kotlin/binary-compatibility-validator">Binary Compatibility Validator Github</Link>,
+          <Link href="https://github.com/intuit/hooks/blob/main/hooks/api/hooks.api">Hooks API</Link>,
+        ]} />
+      </Slide>
 
-      {/* <IntuitOpenSource /> */}
+      <Slide backgroundColor="white">
+        <Step label="Deprecation" image="deprecation-replace.png" links={[
+          <Link href="https://todd.ginsberg.com/post/kotlin/deprecation/">"Enhanced Deprecation in Kotlin"</Link>,
+        ]} />
+      </Slide>
+
+      <Slide>
+        <Topic name="Maintainability" subtopics={["Linting", "Static Analysis", "Contributions"]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="ktlint" image="ktlint.png" links={[
+          <Link href="https://github.com/pinterest/ktlint">ktlint Github</Link>,
+        ]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="detekt" image="detekt.png" links={[
+          <Link href="https://github.com/detekt/detekt">detekt Github</Link>,
+        ]} />
+      </Slide>
+
+      <Slide backgroundColor="white">
+        <Step label="License Check: Fossa" image="fossa.png" links={[
+          <Link href="https://fossa.com/">Fossa</Link>,
+          <Link href="https://app.fossa.com/projects/custom%2B23410%2Fgit%40github.com%3Aintuit%2Fhooks/refs/branch/master/a1a5365b7e6c686b7026d48ff63c30a4f80b30ca/preview">Hooks Fossa Report</Link>
+        ]} />
+      </Slide>
 
       <Slide>
         <Questions />
