@@ -4,9 +4,11 @@ import { Deck, Slide } from "spectacle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFireAlt,
-  faWrench,
+  faBook,
   faAtom,
-  faBacon
+  faBacon,
+  faShip,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 const Feature = ({ title, description, icon }) => (
@@ -22,7 +24,7 @@ const Feature = ({ title, description, icon }) => (
 );
 
 const Link = props => (
-  <span className="text-blue-600 font-semibold underline" {...props} />
+  <a {...props}><span className="text-blue-600 font-semibold underline" {...props} /></a>
 );
 
 const Emphasize = ({ children, className }) => (
@@ -62,14 +64,14 @@ const FrequentlyAskedQuestion = ({ question, answer }) => (
 
 const First = () => (
   <div
-    className="bg-purple-600 w-full h-full flex justify-center flex-col items-center text-center absolute"
+    className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center text-center absolute"
     style={{ margin: -32 }}
   >
-    <h1 className="text-6xl font-bold text-white">auto</h1>
+    <h1 className="text-6xl font-bold text-white">Kotlin</h1>
 
     <p className="text-2xl text-purple-200 font-light">
-      Streamline your release workflow and{" "}
-      <span className="text-yellow-500 font-semibold">publish constantly!</span>
+      We know the language is awesome, but what about{" "}
+      <span className="text-yellow-500 font-semibold">tooling?</span>
     </p>
   </div>
 );
@@ -77,16 +79,15 @@ const First = () => (
 const Second = () => (
   <div className="mt-10 lg:mb-24 text-center flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
-      Adding automated releases shouldn't be hard or require changing your
-      workflow
+      Using a cool language shouldn't come at the expense of quality tools
     </h2>
 
+
     <p className="max-w-2xl text-2xl text-gray-700">
-      <Emphasize>auto</Emphasize> makes automating releases for your project as
-      simple adding a <Label color="yellow">label</Label> to a pull request. If
-      you're releasing all the time you can be{" "}
-      <span className="text-red-500 font-semibold">more confident</span> in your
-      releases. And your users might thank you too 😉
+      Thankfully, the <Emphasize>Kotlin</Emphasize> community considers tooling
+      to be an integral part of the language ecosystem. Let's take a look at
+      some of the tooling I discovered and was able to use for the{" "}
+      <Link href="https://intuit.github.io/hooks">Hooks</Link> project.
     </p>
   </div>
 );
@@ -95,42 +96,39 @@ const Third = () => (
   <div className="h-full flex justify-around items-center flex-row text-gray-900">
     <div className="flex-1 lg:px-12">
       <Feature
-        title="Keep Your Workflow"
-        icon={faWrench}
-        description={
-          <p>
-            Other tools require you to change how any contributor commits to you
-            project. With <Emphasize>auto</Emphasize> leave that baggage behind!
-          </p>
-        }
+        title="Documentation"
+        icon={faBook}
+        description="For libraries that are consumed and expose an API, usage docs and API
+            docs are important to ensure your code can be used easily!"
+            // Dokka for API docs
+            // Orchid for usage docs
+            // Testing documentation knit
       />
 
       <Feature
-        title="Beautiful Changelogs"
-        icon={faBacon}
-        description="Link to PRs and Jira stories, include authors, monorepo aware,
-      customizable labels section, additional release notes, and even
-      more!"
+        title="Quality & Stable Releases"
+        icon={faShip}
+        description="Protect your consumers from errant releases and ensure release follow
+            strict versioning patterns." 
+            // Auto
+            // binary compatibility
       />
 
       <Feature
-        title="Atomic Functions"
-        icon={faAtom}
-        description="Each command does one thing and they do it well. Easily use
-    them to fit any build process."
-      />
-
-      <Feature
-        title="Blazingly Fast Releases"
-        icon={faFireAlt}
-        description="Since all you need to worry about are labels you can work at an incredibly fast pace! This speed to commit also helps with new contributors"
+        title="Maintainability & OpenSource Readiness"
+        icon={faCheck}
+        description="Set the project up for success by defining & enforcing standards to
+            follow when making a contribution. This includes formatting, testing, documentation..."
+            // ktlint
+            // detekt
+            // license check on PR
       />
     </div>
 
     <div className="flex-1 px-12 mb-20 lg:mb-0">
       <img
-        src="changelog-example.png"
-        alt="Changelog example"
+        src="documentation.png"
+        alt="documentation example"
         className="border border-grey-600 rounded-lg p-4 shadow-md"
         style={{ maxHeight: 500 }}
       />
@@ -139,6 +137,23 @@ const Third = () => (
 );
 
 function App() {
+  // title
+  // setup
+  // requirements
+  // 1. documentation
+  // 1a. dokka - api docs
+  // 1b. orchid - usage docs (markdown)
+  // 1c. knit - testing your usage docs
+  // 2. publishing
+  // 2a. auto (not really kotlin, but...)
+  // 2b. binary compatibility
+  // 2c. deprecation
+  // 3. OSS
+  // 3a. ktlint
+  // 3b. detekt
+  // 3c. fossa
+  // 4. intuit OSS process?
+  // 5. questions? 
   return (
     <Deck>
       <Slide>
